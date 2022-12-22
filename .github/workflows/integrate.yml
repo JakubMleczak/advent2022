@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci
-      - run: npm test
-      - run: npm run build 
+      - uses: actions/setup-go@v3
+        with:
+         go-version: '1.16.1' # The Go version to download (if necessary) and use.
+      - run: go run ./3/main.go
